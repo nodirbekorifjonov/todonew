@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import Button from "@/components/Button.vue";
 import FormCreate from "@/components/FormCreate.vue";
-import Input from "@/components/Input.vue";
+import TasksList from "@/components/TasksList.vue";
 </script>
 
 <template>
-  <main>
+  <main class="pt-[91px]">
     <FormCreate class="absolute top-[172px]" />
+    <TasksList />
   </main>
 </template>

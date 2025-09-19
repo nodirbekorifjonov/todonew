@@ -3,11 +3,11 @@
 
 @theme {
   --font-inter: "Inter", sans-serif;
-  --font-interBold: "Inter-Bold", sans-serif;
-  --font-interBlack: "Inter-Black", sans-serif;
+  --font-interBold: "Inter Bold", sans-serif;
+  --font-interBlack: "Inter Black", sans-serif;
   --font-roboto: "Roboto", sans-serif;
-  --font-robotoMedium: "Roboto-Medium", sans-serif;
-  --font-robotoBold: "Roboto-Bold", sans-serif;
+  --font-robotoMedium: "Roboto Medium", sans-serif;
+  --font-robotoBold: "Roboto Bold", sans-serif;
 }
 
 body {
