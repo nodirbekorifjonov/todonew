@@ -1,20 +1,35 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { defineProps, ref } from "vue";
+
+defineProps({
+  task: {
+    type: Object,
+  },
+});
+
+const completed = ref<boolean>(true);
+</script>
 
 <template>
-  <div class="p-4 bg-[#262626] rounded-lg flex gap-4">
+  <div
+    class="p-4 rounded-lg flex gap-4 bg-[#262626] border"
+    :class="completed ? 'border-[#262626]' : 'border-[#333333]'"
+  >
     <div class="checkbox-wrapper-18">
       <div class="round">
         <label>
-          <input type="checkbox" />
+          <input type="checkbox" :checked="completed" />
           <span class="custom-check"></span>
         </label>
       </div>
     </div>
-    <p class="text-sm font-inter text-[#F2F2F2]">
-      Integer urna interdum massa libero auctor neque turpis turpis semper. Duis
-      vel sed fames integer.
+    <p
+      class="text-sm font-inter"
+      :class="completed ? 'text-[#808080] line-through' : 'text-[#F2F2F2]'"
+    >
+      {{ task?.text }}
     </p>
-    <div class="flex gap-1">
+    <div class="flex gap-1 ml-auto">
       <button
         class="text-[#808080] text-sm py-[5px] px-1.5 rounded-sm bg-transparent w-6 h-6 flex justify-center items-center cursor-pointer hover:text-yellow-500 hover:bg-[#333333]"
       >

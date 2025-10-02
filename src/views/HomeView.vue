@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import FormCreate from "@/components/FormCreate.vue";
 import TasksList from "@/components/TasksList.vue";
+
+localStorage.setItem("tasks", "[]");
 </script>
 
 <template>
