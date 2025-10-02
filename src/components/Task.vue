@@ -1,13 +1,19 @@
 <script setup lang="ts">
-import { defineProps, ref } from "vue";
+import { defineProps, ref, watch } from "vue";
 
-defineProps({
+const props = defineProps({
   task: {
     type: Object,
   },
 });
 
-const completed = ref<boolean>(true);
+const emit = defineEmits(["update-task"]);
+
+const completed = ref<boolean>(props.task?.completed);
+
+watch(completed, (newVal) => {
+  emit("update-task", { ...props.task, completed: newVal });
+});
 </script>
 
 <template>
@@ -18,7 +24,7 @@ const completed = ref<boolean>(true);
     <div class="checkbox-wrapper-18">
       <div class="round">
         <label>
-          <input type="checkbox" :checked="completed" />
+          <input type="checkbox" v-model="completed" />
           <span class="custom-check"></span>
         </label>
       </div>
