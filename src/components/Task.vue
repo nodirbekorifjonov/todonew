@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, ref, watch } from "vue";
+import { defineProps, ref, watch, defineEmits } from "vue";
 
 const props = defineProps({
   task: {
@@ -7,7 +7,11 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["update-task"]);
+const handleDeleteTask = () => {
+  emit("delete-task", props.task?.id);
+};
+
+const emit = defineEmits(["update-task", "delete-task"]);
 
 const completed = ref<boolean>(props.task?.completed);
 
@@ -42,6 +46,7 @@ watch(completed, (newVal) => {
         <i class="fa-solid fa-pencil"></i>
       </button>
       <button
+        @click="handleDeleteTask"
         class="text-[#808080] text-sm py-[5px] px-1.5 rounded-sm bg-transparent w-6 h-6 flex justify-center items-center cursor-pointer hover:text-[#E25858] hover:bg-[#333333]"
       >
         <i class="fa-solid fa-trash-can"></i>

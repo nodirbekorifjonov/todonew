@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps<{
+  tasks: { id: string; text: string; completed: boolean }[];
+}>();
+</script>
 
 <template>
   <div class="flex justify-between items-center">
@@ -7,7 +11,7 @@
       <span
         class="py-0.5 px-2 bg-[#262626] rounded-full text-xs text-[#D9D9D9]"
       >
-        0
+        {{ props.tasks.length }}
       </span>
     </div>
     <div class="flex items-center gap-2 font-interBold">
@@ -15,7 +19,7 @@
       <span
         class="py-0.5 px-2 bg-[#262626] rounded-full text-xs text-[#D9D9D9]"
       >
-        0
+        {{ props.tasks.filter((task) => task.completed).length }}
       </span>
     </div>
   </div>
